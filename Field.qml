@@ -24,6 +24,8 @@ Rectangle {
 
         onReleased: {
             parent.color = '#fafafa';
+            parent.parent.piece.pos = (parent.parent.piece.pos + 1) % 40;
+            parent.parent.piece.desired_pos = pos;
         }
     }
 }
