@@ -12,7 +12,7 @@ Page {
 
     Component.onCompleted: {
         function position(field) {
-            var r = 300;
+            var r = 250;
             var delta = Math.PI / 16;
             var x_pad = field.width + r / 30;
             var y_pad = field.height + r / 30;
@@ -50,13 +50,11 @@ Page {
         fields = [];
         var piece_constructor = Qt.createComponent("Piece.qml");
         var component = Qt.createComponent("Field.qml");
-        var r = 300;
         for (var i = 0; i < 40; ++i) {
             var instance = component.createObject(gameBoard, {"pos": i});
             position(instance);
             fields[i] = instance;
         }
         piece = piece_constructor.createObject(gameBoard, {"player": 0, "pos": 0});
-        piece.pos = 1;
     }
 }

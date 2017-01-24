@@ -14,11 +14,13 @@ Rectangle {
             target: parent.piece;
             properties: "x";
             to: parent.fields[pos].x + parent.fields[pos].width / 2 - width / 2;
+            easing.type: Easing.InOutExpo;
         }
         PropertyAnimation {
             target: parent.piece;
             properties: "y";
             to: parent.fields[pos].y + parent.fields[pos].height / 2 - height/ 2;
+            easing.type: Easing.InOutExpo;
         }
         onStopped:  {
             if (pos !== desired_pos) {

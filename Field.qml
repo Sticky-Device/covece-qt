@@ -24,8 +24,11 @@ Rectangle {
 
         onReleased: {
             parent.color = '#fafafa';
-            parent.parent.piece.pos = (parent.parent.piece.pos + 1) % 40;
-            parent.parent.piece.desired_pos = pos;
+            var piece = parent.parent.piece
+            if (piece.pos === piece.desired_pos && piece.pos !== pos) {
+                piece.pos = (piece.pos + 1) % 40;
+            }
+            piece.desired_pos = pos;
         }
     }
 }
