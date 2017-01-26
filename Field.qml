@@ -24,11 +24,7 @@ Rectangle {
 
         onReleased: {
             parent.color = '#fafafa';
-            var piece = parent.parent.piece
-            if (piece.pos === piece.desired_pos && piece.pos !== pos) {
-                piece.pos = (piece.pos + 1) % 40;
-            }
-            piece.desired_pos = (piece.pos + dice.result - 1) % 40;
+
         }
     }
 }

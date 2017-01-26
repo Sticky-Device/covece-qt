@@ -1,15 +1,31 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
+import QtQuick.Layouts 1.2
 
 Page {
+
     Rectangle {
         anchors.fill: parent
         border.width: 3
     }
 
-    Dice {
-        id: dice
+    RowLayout {
+        id: dice_diplay;
         anchors.centerIn: parent;
+        Dice {
+            id: dice
+            board: parent.parent.parent;
+        }
+        Button {
+            text: qsTr("Move");
+            onClicked: {
+                var piece = parent.parent.parent.piece;
+                if (piece.pos === piece.desired_pos) {
+                    piece.pos = (piece.pos + 1) % 40;
+                }
+                piece.desired_pos = (piece.pos + dice.result - 1) % 40;
+            }
+        }
     }
 
     property var fields;
@@ -17,9 +33,6 @@ Page {
     property int roll: 0;
 
     Component.onCompleted: {
-
-
-
         function position(field) {
             var r = 250;
             var delta = Math.PI / 16;
