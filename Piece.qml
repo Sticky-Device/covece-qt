@@ -4,10 +4,15 @@ Rectangle {
     property int pos: 0;
     property int desired_pos: 0;
     property int player: 0;
+
     radius: width / 2;
     width: 20;
     height: width;
     color: 'red';
+
+    function endMove() {
+        dice.roll();
+    }
 
     onPosChanged: ParallelAnimation {
         PropertyAnimation {
@@ -25,6 +30,8 @@ Rectangle {
         onStopped:  {
             if (pos !== desired_pos) {
                 pos = (pos + 1) % 40;
+            } else {
+                endMove();
             }
         }
     }

@@ -7,10 +7,19 @@ Page {
         border.width: 3
     }
 
+    Dice {
+        id: dice
+        anchors.centerIn: parent;
+    }
+
     property var fields;
     property var piece;
+    property int roll: 0;
 
     Component.onCompleted: {
+
+
+
         function position(field) {
             var r = 250;
             var delta = Math.PI / 16;
@@ -55,6 +64,8 @@ Page {
             position(instance);
             fields[i] = instance;
         }
+
         piece = piece_constructor.createObject(gameBoard, {"player": 0, "pos": 0});
+        dice.roll();
     }
 }
