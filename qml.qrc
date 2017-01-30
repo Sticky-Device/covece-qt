@@ -6,5 +6,12 @@
         <file>Field.qml</file>
         <file>Piece.qml</file>
         <file>Dice.qml</file>
+        <file>foundation-icons.ttf</file>
+        <file>audio/dice.01.mp3</file>
+        <file>audio/dice.02.mp3</file>
+        <file>audio/dice.03.wav</file>
+        <file>audio/piece.01.mp3</file>
+        <file>main.cpp</file>
+        <file>audio/piece.01.wav</file>
     </qresource>
 </RCC>

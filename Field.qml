@@ -5,15 +5,13 @@ Rectangle {
     radius: width / 4
     width: 40
     height: 40
-    color: "#fafafa"
+    color: "#2C5D63"
 
     Behavior on color { ColorAnimation {} }
 
     Text {
         anchors.centerIn: parent
-        text: pos
     }
-
 
     MouseArea {
         anchors.fill: parent;

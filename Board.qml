@@ -6,16 +6,18 @@ Page {
 
     Rectangle {
         anchors.fill: parent
-        border.width: 3
+        color: '#283739';
     }
 
     RowLayout {
         id: dice_diplay;
         anchors.centerIn: parent;
+
         Dice {
             id: dice
             board: parent.parent.parent;
         }
+
         Button {
             text: qsTr("Move");
             onClicked: {
@@ -76,6 +78,9 @@ Page {
             var instance = component.createObject(gameBoard, {"pos": i});
             position(instance);
             fields[i] = instance;
+            if (i == 0) {
+                instance.color = '#F7EEBB';
+            }
         }
 
         piece = piece_constructor.createObject(gameBoard, {"player": 0, "pos": 0});
